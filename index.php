@@ -40,6 +40,17 @@ $hotels = [
 
 ];
 
+    $filteredHotels = $hotels;
+    if(isset($_GET['parking']) && $_GET['parking'] !== ''){
+        $tempHotels = [];
+        foreach($hotels as $hotel){
+            if($_GET['parking'] == $hotel['parking']){
+                $tempHotels [] = $hotel;
+            }
+        }
+
+        $filteredHotels = $tempHotels;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
